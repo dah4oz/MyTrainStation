@@ -14,6 +14,7 @@ object HttpClient {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
+            .client(makeOkHttpClient())
             .build().create(RestApi::class.java)
     }
 

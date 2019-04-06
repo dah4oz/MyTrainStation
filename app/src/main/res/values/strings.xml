@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MyTrainStation</string>
+    <string name="station_title_txt">Trains from Arklow to Shankill</string>
 </resources>

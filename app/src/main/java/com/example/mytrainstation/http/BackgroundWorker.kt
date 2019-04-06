@@ -10,20 +10,21 @@ import retrofit2.Response
 
 class BackgroundWorker {
 
-    fun executeTask(request: Deferred<Response<ResponseBody>>, handler: ResponseHandler) {
+     fun executeTask(request: Deferred<Response<ResponseBody>>, handler: ResponseHandler) {
         CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.Main) {
                 try {
                     val response = request.await()
 
                     if(response.isSuccessful) {
+                        //Log.d("BackgroundWorker", "Body: ${response.body()!!.string()}")
                         handler.handleResponse(response.body())
                     } else {
-                        Log.d("MainActivity", "Error getting data ${response.message()}")
+                        Log.d("BackgroundWorker", "Error getting data ${response.message()}")
                         handler.handleError("Error fetching data - ${response.message()}")
                     }
                 } catch (e: Throwable) {
-                    Log.d("MainActivity", "Exception ${e.message}}")
+                    Log.d("BackgroundWorker", "Exception ${e.message}}")
                     handler.handleError("Error during communication - ${e.message}")
                     e.printStackTrace()
                 }

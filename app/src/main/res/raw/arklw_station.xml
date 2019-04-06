@@ -1,0 +1,72 @@
+<ArrayOfObjStationData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                       xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://api.irishrail.ie/realtime/">
+    <objStationData>
+        <Servertime>2019-04-03T13:07:36.993</Servertime>
+        <Traincode>A609</Traincode>
+        <Stationfullname>Arklow</Stationfullname>
+        <Stationcode>ARKLW</Stationcode>
+        <Querytime>13:07:36</Querytime>
+        <Traindate>03 Apr 2019</Traindate>
+        <Origin>Rosslare Europort</Origin>
+        <Destination>Dublin Connolly</Destination>
+        <Origintime>12:55</Origintime>
+        <Destinationtime>15:56</Destinationtime>
+        <Status>No Information</Status>
+        <Lastlocation/>
+        <Duein>66</Duein>
+        <Late>0</Late>
+        <Exparrival>14:12</Exparrival>
+        <Expdepart>14:13</Expdepart>
+        <Scharrival>14:12</Scharrival>
+        <Schdepart>14:13</Schdepart>
+        <Direction>Northbound</Direction>
+        <Traintype>Train</Traintype>
+        <Locationtype>S</Locationtype>
+    </objStationData>
+    <objStationData>
+        <Servertime>2019-04-03T18:37:59.157</Servertime>
+        <Traincode>A613</Traincode>
+        <Stationfullname>Arklow</Stationfullname>
+        <Stationcode>ARKLW</Stationcode>
+        <Querytime>18:37:59</Querytime>
+        <Traindate>03 Apr 2019</Traindate>
+        <Origin>Rosslare Europort</Origin>
+        <Destination>Dublin Connolly</Destination>
+        <Origintime>17:30</Origintime>
+        <Destinationtime>20:28</Destinationtime>
+        <Status>No Information</Status>
+        <Lastlocation/>
+        <Duein>12</Duein>
+        <Late>0</Late>
+        <Exparrival>18:48</Exparrival>
+        <Expdepart>18:49</Expdepart>
+        <Scharrival>18:48</Scharrival>
+        <Schdepart>18:49</Schdepart>
+        <Direction>Northbound</Direction>
+        <Traintype>Train</Traintype>
+        <Locationtype>S</Locationtype>
+    </objStationData>
+    <objStationData>
+        <Servertime>2019-04-03T18:37:59.157</Servertime>
+        <Traincode>A610</Traincode>
+        <Stationfullname>Arklow</Stationfullname>
+        <Stationcode>ARKLW</Stationcode>
+        <Querytime>18:37:59</Querytime>
+        <Traindate>03 Apr 2019</Traindate>
+        <Origin>Dublin Connolly</Origin>
+        <Destination>Rosslare Europort</Destination>
+        <Origintime>17:33</Origintime>
+        <Destinationtime>20:40</Destinationtime>
+        <Status>En Route</Status>
+        <Lastlocation>Departed Greystones</Lastlocation>
+        <Duein>45</Duein>
+        <Late>1</Late>
+        <Exparrival>19:21</Exparrival>
+        <Expdepart>19:22</Expdepart>
+        <Scharrival>19:20</Scharrival>
+        <Schdepart>19:21</Schdepart>
+        <Direction>Southbound</Direction>
+        <Traintype>Train</Traintype>
+        <Locationtype>S</Locationtype>
+    </objStationData>
+</ArrayOfObjStationData>
