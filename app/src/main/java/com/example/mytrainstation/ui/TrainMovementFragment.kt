@@ -26,14 +26,16 @@ class TrainMovementFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_movement, container, false)
 
-        recyclerView = view.findViewById(R.id.recycler)
+        recyclerView = view.findViewById(R.id.movement_recycler)
         recyclerView?.layoutManager = LinearLayoutManager(activity)
+
+        val data = trainMovement?: ArrayList()
+        recyclerView?.adapter = MovementAdapter(data, context!!)
 
         return view
     }
 
-    public fun setData(data: List<TrainMovement>) {
+    fun setData(data: List<TrainMovement>) {
         trainMovement = data
-        recyclerView?.adapter = MovementAdapter(data, context!!)
     }
 }

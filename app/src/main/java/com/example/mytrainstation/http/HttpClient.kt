@@ -1,5 +1,8 @@
 package com.example.mytrainstation.http
 
+import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,6 +19,12 @@ object HttpClient {
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(makeOkHttpClient())
             .build().create(RestApi::class.java)
+    }
+
+    fun checkConnectivity(context: Context): Boolean {
+        val connectivityManager = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetwork: NetworkInfo? = connectivityManager.activeNetworkInfo
+        return activeNetwork?.isConnected == true
     }
 
     private fun makeOkHttpClient(): OkHttpClient {

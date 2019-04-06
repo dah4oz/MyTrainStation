@@ -1,5 +1,6 @@
 package com.example.mytrainstation.ui
 
+import android.app.AlertDialog
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -24,7 +25,7 @@ import okhttp3.ResponseBody
 
 class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
 
-    val loadMockData = true
+    val loadMockData = false
 
     val sourceCode = "ARKLW"
 
@@ -125,6 +126,11 @@ class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
     }
 
     private fun retrieveStationData(byCode: String) {
+        if(!HttpClient.checkConnectivity(context!!)) {
+            showDialog()
+            return
+        }
+
         progress?.visibility = View.VISIBLE
 
         val service = HttpClient.provideHttpClient()
@@ -141,7 +147,7 @@ class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
 
             override fun handleResponse(response: ResponseBody?) {
                 progress?.visibility = View.GONE
-                
+
                 if(response != null) {
                     val received = response.byteStream()
                     val parser = StationParser()
@@ -192,5 +198,16 @@ class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
         }
 
         return false
+    }
+
+    private fun showDialog() {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle("Error")
+        builder.setMessage("Check your data connection!")
+
+        builder.setNeutralButton("OK") { dialog, which ->
+            dialog.dismiss()
+        }
+        builder.show()
     }
 }

@@ -25,8 +25,8 @@ class MovementAdapter(private val items: List<TrainMovement>, private val contex
         holder.location?.text = "Station: ${items[position].locationFullName}"
         holder.expArrival?.text = "Expected arrival: ${items[position].expArrival}"
         holder.expDepart?.text = "Expected depart: ${items[position].expDeparture}"
-        holder.schArrival?.text = "Destination: ${items[position].schArrival}"
-        holder.schDepart?.text = "Destination: ${items[position].schDeparture}"
+        holder.schArrival?.text = "Scheduled arrival: ${items[position].schArrival}"
+        holder.schDepart?.text = "Scheduled depart: ${items[position].schDeparture}"
     }
 
     class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {

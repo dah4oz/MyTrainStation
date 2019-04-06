@@ -7,10 +7,7 @@ import android.widget.Toast
 import com.example.mytrainstation.http.BackgroundWorker
 import com.example.mytrainstation.http.HttpClient
 import com.example.mytrainstation.http.ResponseHandler
-import com.example.mytrainstation.model.Station
-import com.example.mytrainstation.model.StationData
 import com.example.mytrainstation.model.TrainMovement
-import com.example.mytrainstation.parser.StationParser
 import com.example.mytrainstation.parser.TrainParser
 import com.example.mytrainstation.ui.StationFragment
 import com.example.mytrainstation.ui.TrainMovementFragment
@@ -39,7 +36,7 @@ class MainActivity : AppCompatActivity(), StationFragment.TrainSelectedListener 
 
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.content, fragment, null)
+            .replace(R.id.content, fragment, null)
             .commit()
     }
 
