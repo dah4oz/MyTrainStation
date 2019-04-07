@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import com.example.mytrainstation.DateUtil
 import com.example.mytrainstation.R
@@ -34,6 +35,8 @@ class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
     var arklowStationData: List<StationData> = ArrayList()
 
     var movementMap = HashMap<String, List<TrainMovement>>()
+
+    private var noTrainTv: TextView? = null
 
     private var recyclerView: RecyclerView? = null
 
@@ -62,6 +65,7 @@ class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
         recyclerView?.layoutManager = LinearLayoutManager(activity)
 
         progress = view.findViewById(R.id.progress)
+        noTrainTv = view.findViewById(R.id.no_train_tv)
 
         return view
     }
@@ -143,6 +147,7 @@ class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
             override fun handleError(error: String) {
                 Toast.makeText(context, "Exception $error", Toast.LENGTH_SHORT).show()
                 progress?.visibility = View.GONE
+                showNOTrainInfo()
             }
 
             override fun handleResponse(response: ResponseBody?) {
@@ -152,8 +157,13 @@ class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
                     val received = response.byteStream()
                     val parser = StationParser()
                     val stationDataList = parser.serializeStationDataXmlInput(received)
-                    arklowStationData = stationDataList
-                    checkActiveTrains(stationDataList)
+
+                    if(!stationDataList.isNullOrEmpty()) {
+                        arklowStationData = stationDataList
+                        checkActiveTrains(stationDataList)
+                    } else {
+                        showNOTrainInfo()
+                    }
                 }
             }
 
@@ -209,5 +219,10 @@ class StationFragment : Fragment(), TrainAdapter.TrainItemClicked {
             dialog.dismiss()
         }
         builder.show()
+    }
+
+    private fun showNOTrainInfo() {
+        noTrainTv?.visibility = View.VISIBLE
+        recyclerView?.visibility = View.GONE
     }
 }

@@ -28,6 +28,18 @@
 
     </android.support.v7.widget.RecyclerView>
 
+    <TextView
+            android:id="@+id/no_train_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:text="@string/no_train_info"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+    />
+
     <ProgressBar
             android:id="@+id/progress"
             android:layout_width="wrap_content"

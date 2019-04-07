@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">MyTrainStation</string>
     <string name="station_title_txt">Trains from Arklow to Shankill</string>
+    <string name="no_train_info">No train info found. Try again later.</string>
 </resources>
